@@ -1,0 +1,29 @@
+{
+  "name": "remote-vue2-loader",
+  "version": "1.0.0",
+  "description": "Remote access to vue2 SFC files or string parsing, scss support",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lib": "rm -rf lib && rollup -c --bundleConfigAsCjs"
+  },
+  "keywords": [
+    "vue2",
+    "remote",
+    "loader",
+    "scss",
+    "async component"
+  ],
+  "author": "xingheng",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^3.19.1"
+  },
+  "dependencies": {
+    "@babel/standalone": "^7.21.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "tiny-sass-compiler": "^0.12.2"
+  }
+}
