@@ -2,11 +2,15 @@
   "name": "remote-vue2-loader",
   "version": "1.0.0",
   "description": "Remote access to vue2 SFC files or string parsing, scss support",
-  "main": "index.js",
+  "main": "lib/remoteVueLoader.js",
+  "repository": "https://github.com/HunterXing/remote-vue2-loader",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lib": "rm -rf lib && rollup -c --bundleConfigAsCjs"
   },
+  "files": [
+    "lib/*"
+  ],
   "keywords": [
     "vue2",
     "remote",
