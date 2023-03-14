@@ -61,12 +61,9 @@ export default {
   },
   methods: {
     test() {
-      // 此处的es6y语法会自动被babel降级
+      // 此处的es6语法会自动被babel降级
       const tip = 'tip'
-      this.$message({
-        message: tip,
-        type: 'success'
-      });
+      alert(tip)
     }
   }
 }
