@@ -44,37 +44,39 @@ export default {
 ### 说明
 上述远程的testA.vue文件内容可能如下：
 ``` javascript
-
 <template>
-  <div class="test-wrap">
-    <p>{{ message }}</p>
-    <el-button @click="test" type="primary">按钮测试</el-button>
-  </div>
+  <component :is="remoteComponent"></component>
 </template>
 
 <script>
+import remoteVueLoader from 'remote-vue2-loader'
 export default {
-  data() {
+  data () {
     return {
-      message: 'Hello, world!'
+      remoteComponent: null
     }
   },
+  created () {
+    this.getRemoteComponent()
+  },
   methods: {
-    test() {
-      // 此处的es6语法会自动被babel降级
-      const tip = 'tip'
-      alert(tip)
+    // 尝试渲染远程文件或远程字符串
+    async getRemoteComponent() {
+      // 情况1. 直接从从远程服务器加载组件
+      this.remoteComponent = remoteVueLoader('127.0.0.1/testA.vue')
+      
+      // 情况2. 如果接口是post等其他类型接口，或者需要添加参数，也可以这么写
+      axios.get('http://127.0.0.1/testA.vue', {
+        params: {
+          p1: 'xxx',
+          p2: 'xxx'
+        }
+      }).then(res => {
+        this.remoteComponent = remoteVueLoader('data:text/plain,' + encodeURIComponent(res.data))
+      })
     }
   }
 }
-</script>
-<style lang="scss">
-.test-wrap {
-  p {
-    color: #ff0;
-  }
-}
-</style>
 ```
 
 

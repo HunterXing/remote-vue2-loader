@@ -1,6 +1,6 @@
 {
   "name": "remote-vue2-loader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Remote access to vue2 SFC files or string parsing, scss support",
   "main": "lib/remoteVueLoader.js",
   "repository": "https://github.com/HunterXing/remote-vue2-loader",
